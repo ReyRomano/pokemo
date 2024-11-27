@@ -1,0 +1,12 @@
+Angular CLI: 15.2.0
+Node: 18.20.4
+Package Manager: npm 8.19.4
+OS: win32 x64	---	Info recuperada de arch desde GH
+
+Claves SSH en compu azul:	C:/Users/Hp/.ssh
+
+Accesando a mi repo de reyromano:
+Entrar desde cmd a carpeta donde están mis SSH
+> cd C:/Users/Hp/.ssh
+> ssh -T git@github.com		//Saldrá ms de q successfully authenticated, pero GH no provee el acceso, Pero esto es ok
+
