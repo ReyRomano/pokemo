@@ -1,17 +1,17 @@
+<div>
 
+  <h1>A buscar Pokemons Con Bootstrap</h1>
 
-<h1>A buscar Pokemons Con Bootstrap</h1>
+  <div class="row">
 
-<div class="row">
+    <div class="card p-2">
+    <!-- <h1 *ngIf="cargando==true">Cargando...</h1> -->
 
-  <div class="card p-2">
-  <!-- <h1 *ngIf="cargando==true">Cargando...</h1> -->
-
-    <div class="col-md-12">
-      <table class="table table-bordered border-primary">
-          <thead>
-            <tr>
-                      
+      <div class="col-md-12">
+        <table class="table table-bordered border-primary">
+            <thead>
+              <tr>
+                        
                 <th scope="col">
                   <!-- <div class="container-fluid">Nombre <input #txtBuscarNombre
                     type="text"
@@ -20,121 +20,119 @@
                     class="form-control me-2" 
                     placeholder="Buscar pokemon-nombre" />      
                   </div>   -->
-                  <div class="container-fluid">Nombre <input #txtBuscarNombre
-                    type="text"
-                    (keyup)="buscarNombre( txtBuscarNombre.value )"
-                    aria-label="First name" 
-                    class="form-control me-2" 
-                    placeholder="Buscar pokemon-nombre" />      
+                  <div class="container-fluid">Nombre 
+                    <input #txtBuscarNombre
+                          type="text"
+                          (keyup)="buscarNombre( txtBuscarNombre.value )"
+                          aria-label="First name" 
+                          class="form-control me-2" 
+                          placeholder="Buscar pokemon-nombre" />      
                   </div>    
                 </th>
-              <th scope="col">Tipo</th>
-              <th scope="col">Habilidad</th>
-            </tr>
-          </thead>
-          <tbody>
+                <th scope="col">Tipo</th>
+                <th scope="col">Habilidad</th>
+              </tr>
+            </thead>
+            <tbody>
 
-            <!--  <tr>  -->
+              <!--  <tr>  -->
 
-                <!--  <td>          -->
-                    <!-- <input #txtBuscarNombre 
-                        type="text"
-                        (keyup)="buscarNombre( txtBuscarNombre.value )"
-                        aria-label="First name" 
-                        class="form-control me-2" 
-                        placeholder="Buscar pokemon-nombre" /> -->
-                        
-                        <!-- Busca hasta que clico 'enter': -->
-                    <!-- <input #txtBuscarNombre
-                        type="text"
-                        (keyup.enter)="buscarNombre( txtBuscarNombre.value )"
-                        aria-label="First name" 
-                        class="form-control me-2" 
-                        placeholder="Buscar pokemon-nombre" />         -->
-                
-                <!--  </td>   -->
-
-
-            <!-- </tr>  -->
-              <!--  Original:
-                <tr *ngFor="let pokemon of pokemons; let indice=index">
-
-                <td > <a [routerLink]="['/pokemon', pokemon.name]"> {{indice +1}}: {{pokemon.name}} </a> </td>
+                  <!--  <td>          -->
+                      <!-- <input #txtBuscarNombre 
+                          type="text"
+                          (keyup)="buscarNombre( txtBuscarNombre.value )"
+                          aria-label="First name" 
+                          class="form-control me-2" 
+                          placeholder="Buscar pokemon-nombre" /> -->
+                          
+                          <!-- Busca hasta que clico 'enter': -->
+                      <!-- <input #txtBuscarNombre
+                          type="text"
+                          (keyup.enter)="buscarNombre( txtBuscarNombre.value )"
+                          aria-label="First name" 
+                          class="form-control me-2" 
+                          placeholder="Buscar pokemon-nombre" />         -->
+                  
+                  <!--  </td>   -->
 
 
-                <td> <p *ngFor="let tipo of pokemon.tipo"> {{tipo.type.name}} </p></td>
+              <!-- </tr>  -->
+                <!--  Original:
+                  <tr *ngFor="let pokemon of pokemons; let indice=index">
 
-                <td> <p *ngFor="let habilidad of pokemon.habilidad"> {{habilidad.ability.name}} </p></td>
-              </tr> -->
+                  <td > <a [routerLink]="['/pokemon', pokemon.name]"> {{indice +1}}: {{pokemon.name}} </a> </td>
+
+
+                  <td> <p *ngFor="let tipo of pokemon.tipo"> {{tipo.type.name}} </p></td>
+
+                  <td> <p *ngFor="let habilidad of pokemon.habilidad"> {{habilidad.ability.name}} </p></td>
+                </tr> -->
 
               <!--  --------------------------------------- Inicio Edito:  -------------------->
-              
-              
 
-                <tr *ngFor="let pokemon of pokemons
-                | paginate: { itemsPerPage: 50, currentPage: page }" >
+              <tr *ngFor="let pokemon of pokemons
+              | paginate: { itemsPerPage: 50, currentPage: page }" >
 
-                  <td  *ngIf="!txtBuscarNombre.value"> <a [routerLink]="['/pokemon', pokemon.name]"> {{pokemon.name}} </a> </td>
+                <td  *ngIf="!txtBuscarNombre.value"> <a [routerLink]="['/pokemon', pokemon.name]"> {{pokemon.name}} </a> </td>
 
-                  <!--  <td *ngIf="!txtBuscarNombre.value"> <p *ngFor="let tipo of pokemon.tipo"> {{tipo.type.name}} </p></td> -->
-                  <td *ngIf="!txtBuscarNombre.value"> <a [routerLink]="['/pokemon', pokemon.name]"> <p *ngFor="let tipo of pokemon.tipo"> {{tipo.type.name}} </p> </a> </td>
+                <!--  <td *ngIf="!txtBuscarNombre.value"> <p *ngFor="let tipo of pokemon.tipo"> {{tipo.type.name}} </p></td> -->
+                <td *ngIf="!txtBuscarNombre.value"> <a [routerLink]="['/pokemon', pokemon.name]"> <p *ngFor="let tipo of pokemon.tipo"> {{tipo.type.name}} </p> </a> </td>
 
-                  <!-- <td *ngIf="!txtBuscarNombre.value"> <p *ngFor="let habilidad of pokemon.habilidad"> {{habilidad.ability.name}} </p></td> -->
-                  <td *ngIf="!txtBuscarNombre.value"> <a [routerLink]="['/pokemon', pokemon.name]"> <p *ngFor="let habilidad of pokemon.habilidad"> {{habilidad.ability.name}} </p> </a> </td>
+                <!-- <td *ngIf="!txtBuscarNombre.value"> <p *ngFor="let habilidad of pokemon.habilidad"> {{habilidad.ability.name}} </p></td> -->
+                <td *ngIf="!txtBuscarNombre.value"> <a [routerLink]="['/pokemon', pokemon.name]"> <p *ngFor="let habilidad of pokemon.habilidad"> {{habilidad.ability.name}} </p> </a> </td>
+              </tr>
+
+              <!--  ----------- Inicio Editando -->
+              <ng-container *ngIf="txtBuscarNombre.value">
+              <!-- Si llegara a fallar éste 'ng-container', que se quede como los if´s del anterior (<td  *ngIf="txtBuscarNombre.value"></td>) -->
+                
+                <tr *ngFor="let pokemon of filteredPokemons">
+                  <td> <a [routerLink]="['/pokemon', pokemon?.name]"> {{pokemon?.name}} </a> </td>
+                  <!-- <td  *ngIf="txtBuscarNombre.value"> {{nombre?.name}} </td> -->          
+        
+                  <!-- Primer tipo dePokemon buscado: <td  *ngIf="txtBuscarNombre.value"> {{nombre?.types[0].type.name}} </td>  
+                    todos los tipos de pokemon buscado: -->
+                  <td> <a [routerLink]="['/pokemon', pokemon?.name]"> <p *ngFor="let tipe of pokemon?.tipo"> {{tipe?.type?.name}} </p> </a> </td>
+        
+                  <!-- Primera habilidad dePokemon buscado:  <td  *ngIf="txtBuscarNombre.value"> <p> {{nombre?.abilities[0].ability.name}} </p> </td>             
+                  todas las habilidades de pokemon buscado: -->
+                  <td> <a [routerLink]="['/pokemon', pokemon?.name]"> <p *ngFor="let ability of pokemon?.habilidad"> {{ability.ability.name}} </p> </a> </td>
                 </tr>
 
-                <!--  ----------- Inicio Editando -->
-                <ng-container *ngIf="txtBuscarNombre.value">
-                <!-- Si llegara a fallar éste 'ng-container', que se quede como los if´s del anterior (<td  *ngIf="txtBuscarNombre.value"></td>) -->
-                  
-                  <tr *ngFor="let pokemon of filteredPokemons">
-                    <td> <a [routerLink]="['/pokemon', pokemon?.name]"> {{pokemon?.name}} </a> </td>
-                    <!-- <td  *ngIf="txtBuscarNombre.value"> {{nombre?.name}} </td> -->          
-          
-                    <!-- Primer tipo dePokemon buscado: <td  *ngIf="txtBuscarNombre.value"> {{nombre?.types[0].type.name}} </td>  
-                      todos los tipos de pokemon buscado: -->
-                    <td> <a [routerLink]="['/pokemon', pokemon?.name]"> <p *ngFor="let tipe of pokemon?.tipo"> {{tipe?.type?.name}} </p> </a> </td>
-          
-                    <!-- Primera habilidad dePokemon buscado:  <td  *ngIf="txtBuscarNombre.value"> <p> {{nombre?.abilities[0].ability.name}} </p> </td>             
-                    todas las habilidades de pokemon buscado: -->
-                    <td> <a [routerLink]="['/pokemon', pokemon?.name]"> <p *ngFor="let ability of pokemon?.habilidad"> {{ability.ability.name}} </p> </a> </td>
-                  </tr>
+              </ng-container>
 
-                </ng-container>
+              <!--  <td *ngIf="txtBuscarNombre.value"> <p *ngFor="let types of nombre.types"> {{types.type.name}} </p></td>-->
 
-                  <!--  <td *ngIf="txtBuscarNombre.value"> <p *ngFor="let types of nombre.types"> {{types.type.name}} </p></td>-->
+              <!--  <td *ngIf="txtBuscarNombre.value"> <p *ngFor="let abilities of nombre.abilities"> {{abilities.ability.name}} </p></td>  -->
+              <!--  ----------- Fin Editando -->
 
-                  <!--  <td *ngIf="txtBuscarNombre.value"> <p *ngFor="let abilities of nombre.abilities"> {{abilities.ability.name}} </p></td>  -->
-                <!--  ----------- Fin Editando -->
+              <!--  --------------------------------------- Fin Edito:  -------------------->
 
-            
-                    
+
+            </tbody>
+        </table>
+
+        <h1 *ngIf="cargando==true" style="text-align: center;">Cargando...</h1>
           
 
-            <!--  --------------------------------------- Fin Edito:  -------------------->
+        <!--  --------------------------------------- Inicio Edito:  -------------------->
 
+        <div *ngIf="txtBuscarNombre.value.length === 0">
+          <pagination-controls
+              (pageChange)="page = $event"
+              previousLabel="Anterior"
+              nextLabel="Siguiente">
+          </pagination-controls>
+        </div>
 
-          </tbody>
-      </table>
+        <!--  --------------------------------------- Fin Edito:  -------------------->
 
-      <h1 *ngIf="cargando==true" style="text-align: center;">Cargando...</h1>
-        
-
-      <!--  --------------------------------------- Inicio Edito:  -------------------->
-
-      <div *ngIf="txtBuscarNombre.value.length === 0">
-        <pagination-controls
-      (pageChange)="page = $event"
-      previousLabel="Anterior"
-      nextLabel="Siguiente">
-      </pagination-controls>
       </div>
-
-      <!--  --------------------------------------- Fin Edito:  -------------------->
-
     </div>
   </div>
+
 </div>
+
 
 
 <!--  Corté desde lín 68 hasta 65: -->
